@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../providers/post_provider.dart';
+import '../../../providers/post_provider.dart';
 
 class AddPostPage extends StatelessWidget {
   AddPostPage({Key? key}) : super(key: key);
