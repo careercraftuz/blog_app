@@ -1,12 +1,12 @@
-class User {
+class UserModel {
   int id;
   String username;
   String password;
 
-  User({required this.id, required this.username, required this.password});
+  UserModel({required this.id, required this.username, required this.password});
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
       id: json['id'],
       username: json['username'],
       password: json['password'],

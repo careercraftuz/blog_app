@@ -1,4 +1,4 @@
-class Post {
+class PostModel {
   int id;
   int author;
   String title;
@@ -8,7 +8,7 @@ class Post {
   DateTime creationDate;
   DateTime publicationDate;
 
-  Post({
+  PostModel({
     required this.id,
     required this.title,
     required this.content,
@@ -18,8 +18,8 @@ class Post {
     required this.creationDate,
   });
 
-  factory Post.fromJson(Map<String, dynamic> json) {
-    return Post(
+  factory PostModel.fromJson(Map<String, dynamic> json) {
+    return PostModel(
       id: json['id'],
       author: json['author'],
       title: json['title'],

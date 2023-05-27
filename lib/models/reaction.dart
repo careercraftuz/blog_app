@@ -1,18 +1,18 @@
-class Reaction {
+class ReactionModel {
   int id;
   int post;
   int user;
   bool like;
 
-  Reaction({
+  ReactionModel({
     required this.id,
     required this.post,
     required this.user,
     required this.like,
   });
 
-  factory Reaction.fromJson(Map<String, dynamic> json) {
-    return Reaction(
+  factory ReactionModel.fromJson(Map<String, dynamic> json) {
+    return ReactionModel(
       id: json['id'],
       post: json['post'],
       user: json['user'],
