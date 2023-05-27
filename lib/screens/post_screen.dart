@@ -15,7 +15,7 @@ class Postpage extends StatelessWidget {
     final userProvider = Provider.of<UserProvider>(context);
     print(postProvider.posts);
     if (userProvider.token == '') {
-      Navigator.pushReplacementNamed(context, '/');
+      Navigator.pushNamed(context, '/');
     }
     return userProvider.token != null
         ? Scaffold(

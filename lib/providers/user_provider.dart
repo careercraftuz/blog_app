@@ -56,6 +56,9 @@ class UserProvider with ChangeNotifier {
 
       // notify listeners
       notifyListeners();
+    } else {
+      _token = '';
+      notifyListeners();
     }
   }
 
