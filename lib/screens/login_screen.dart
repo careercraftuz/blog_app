@@ -62,7 +62,7 @@ class LoginPage extends StatelessWidget {
                   _passwordController.text,
                 );
                 postProvider.getPosts();
-                Navigator.pushNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, '/home');
               },
             )
           ],
