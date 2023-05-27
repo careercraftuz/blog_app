@@ -1,11 +1,11 @@
-String baseUrl = 'http://example.com';
+String baseUrl = 'https://python2022g.pythonanywhere.com/';
 
 // gets all user
 String getAllUserURL = '$baseUrl/api/users';
 // gets user by id function
 String getUserByIdURL(int id) => '$baseUrl/api/users/$id';
 // create user
-String createUserURL = '$baseUrl/api/create-user';
+String createUserURL = '$baseUrl/api/create-user/';
 // login user
 String loginUserURL = '$baseUrl/api/login-user';
 

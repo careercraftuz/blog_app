@@ -56,7 +56,7 @@ class SignUpPage extends StatelessWidget {
             TextButton(
                 child: const Text('Alreade have an account'),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/login');
+                  Navigator.pushReplacementNamed(context, '/');
                 }),
             const SizedBox(height: 10),
             ElevatedButton(
@@ -67,7 +67,7 @@ class SignUpPage extends StatelessWidget {
               ),
               child: const Text('Sign Up'),
               onPressed: () {
-                userProvider.login(
+                userProvider.signup(
                   _usernameController.text,
                   _passwordController.text,
                 );

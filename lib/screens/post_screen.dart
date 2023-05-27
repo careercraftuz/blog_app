@@ -15,10 +15,23 @@ class Postpage extends StatelessWidget {
     final postProvider = Provider.of<PostProvider>(context);
     // user provider
     final userProvider = Provider.of<UserProvider>(context);
-
+    print(postProvider.posts);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Home Page'),
+          actions: [
+            IconButton(
+                icon: const Icon(Icons.add),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/add_post');
+                }),
+            IconButton(
+                icon: const Icon(Icons.logout),
+                onPressed: () {
+                  userProvider.logout();
+                  Navigator.pushReplacementNamed(context, '/');
+                }),
+          ],
         ),
         body: userProvider.token != null
             ? Center(

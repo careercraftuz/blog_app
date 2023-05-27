@@ -22,15 +22,22 @@ class UserProvider with ChangeNotifier {
     // TODO: login user by requesting token from server
     // create uri from url
     final uri = Uri.parse(loginUserURL);
-
+    print(password);
+    print(username);
     // get response from request
-    final response = await http.post(
-      uri,
-      body: {
-        'username': username,
-        'password': password,
-      },
-    );
+    final response = await http.post(uri,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: jsonEncode(
+          {
+            'username': username,
+            'password': password,
+          },
+        ));
+
+    print(response.body);
 
     // check if response is success
     if (response.statusCode == 200) {

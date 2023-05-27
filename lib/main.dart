@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'providers/post_provider.dart';
 import 'providers/user_provider.dart';
 
+import 'screens/add_post_screen.dart';
 import 'screens/post_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/sign_up_screen.dart';
@@ -24,11 +25,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/login',
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
       routes: {
         '/signup': (context) => SignUpPage(),
-        '/login': (context) => LoginPage(),
+        '/': (context) => LoginPage(),
         '/home': (context) => const Postpage(),
+        '/add_post': (context) => AddPostPage(),
       },
     );
   }

@@ -60,8 +60,10 @@ class PostProvider with ChangeNotifier {
   }
 
   // create post
-  Future<void> createPost(PostModel post) async {
+  Future<void> createPost(String title, String content, int author) async {
     // TODO: create post from request
+    print(title);
+    print(content);
     // create uri from url
     final uri = Uri.parse(createPostUrl);
 
@@ -69,11 +71,13 @@ class PostProvider with ChangeNotifier {
     final response = await http.post(
       uri,
       body: {
-        'title': post.title,
-        'content': post.content,
-        'author': post.author.toString(),
+        'title': title,
+        'content': content,
+        'author': author.toString(),
       },
     );
+
+    print(response.body);
 
     // check if response is success
     if (response.statusCode == 200) {
