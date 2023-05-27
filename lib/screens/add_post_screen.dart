@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/post_provider.dart';
-import '../providers/user_provider.dart';
 
 class AddPostPage extends StatelessWidget {
   AddPostPage({Key? key}) : super(key: key);
@@ -17,8 +16,6 @@ class AddPostPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // post provider
     final postProvider = Provider.of<PostProvider>(context, listen: false);
-    // user provider
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
 
     return Scaffold(
         appBar: AppBar(
@@ -50,12 +47,7 @@ class AddPostPage extends StatelessWidget {
                   onPressed: () {
                     print('pressed');
                     print(_titleController.text);
-                    print(userProvider.userId!);
-                    postProvider.createPost(
-                      _titleController.text,
-                      _contentController.text,
-                      int.parse(userProvider.userId!),
-                    );
+                    postProvider.createPost(_titleController.text, _contentController.text);
                     print('second');
                     Navigator.pushReplacementNamed(context, '/home');
                     print('end');

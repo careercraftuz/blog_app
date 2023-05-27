@@ -60,7 +60,7 @@ class PostProvider with ChangeNotifier {
   }
 
   // create post
-  Future<void> createPost(String title, String content, int author) async {
+  Future<void> createPost(String title, String content) async {
     // TODO: create post from request
     print(title);
     print(content);
@@ -73,7 +73,7 @@ class PostProvider with ChangeNotifier {
       body: {
         'title': title,
         'content': content,
-        'author': author.toString(),
+        'author': 1.toString(),
       },
     );
 

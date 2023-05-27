@@ -72,7 +72,7 @@ class SignUpPage extends StatelessWidget {
                   _passwordController.text,
                 );
                 postProvider.getPosts();
-                Navigator.pushReplacementNamed(context, '/home');
+                Navigator.pushReplacementNamed(context, '/');
               },
             )
           ],

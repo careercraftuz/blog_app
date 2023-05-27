@@ -24,18 +24,19 @@ class UserProvider with ChangeNotifier {
     final uri = Uri.parse(loginUserURL);
     print(password);
     print(username);
+
+    // encode username and password
+    final encode = base64.encode(
+      utf8.encode('$username:$password'),
+    );
     // get response from request
-    final response = await http.post(uri,
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: jsonEncode(
-          {
-            'username': username,
-            'password': password,
-          },
-        ));
+    final response = await http.post(uri, headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Authorization': 'Basic $encode',
+    });
+    print(response.statusCode);
+    print(encode);
 
     print(response.body);
 
@@ -49,11 +50,9 @@ class UserProvider with ChangeNotifier {
 
       // get data from json data
       final token = jsonData['token'];
-      final userId = jsonData['id'];
 
       // set token and userId
       _token = token;
-      _userId = userId;
 
       // notify listeners
       notifyListeners();
@@ -64,6 +63,7 @@ class UserProvider with ChangeNotifier {
   Future<void> signup(String username, String password) async {
     // TODO: signup user by requesting token from server
     // create uri from url
+    print(username);
     final uri = Uri.parse(createUserURL);
 
     // get response from request
@@ -75,6 +75,8 @@ class UserProvider with ChangeNotifier {
       },
     );
 
+    print(response.body);
+
     // check if response is success
     if (response.statusCode == 200) {
       // get data from response
@@ -85,11 +87,9 @@ class UserProvider with ChangeNotifier {
 
       // get data from json data
       final token = jsonData['token'];
-      final userId = jsonData['userId'];
 
       // set token and userId
       _token = token;
-      _userId = userId;
 
       // notify listeners
       notifyListeners();
